@@ -11,7 +11,6 @@ static void esc_cb(GLFWwindow* win, int key, int scancode, int action, int mods)
 int main(void)
 {
     GLFWwindow* window;
-
     /* Initialize the library */
     if (!glfwInit())
         return -1;
@@ -22,6 +21,7 @@ int main(void)
     // not super accurate, but good enough for figuring out if we're far
     // from the proper rate
     double period = 1.0 / mode->refreshRate;
+    printf("period: %.3f\n", period);
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(mode->width, mode->height, "BW timing test", primary, NULL);
     if (!window)
@@ -58,6 +58,7 @@ int main(void)
         glVertex2i(10, 10);
         glEnd();
         glFinish();
+
         double t = glfwGetTime();
         double dt = t - t0;
         t0 = t;
@@ -66,10 +67,10 @@ int main(void)
         }
 
         // make sure we're not getting any gl errors
-        GLenum err;
-        if ((err = glGetError()) != GL_NO_ERROR) {
-            printf("err: %i\n", err);
-        }
+        // GLenum err;
+        // if ((err = glGetError()) != GL_NO_ERROR) {
+        //     printf("err: %i\n", err);
+        // }
 
         /* Poll for and process events */
         glfwPollEvents();

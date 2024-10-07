@@ -1,3 +1,24 @@
+
+```
+cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
+cmake --build build
+```
+
+With gdb...
+
+```
+gdb <binary name>
+br 64 # or whenever dt has been computed
+r
+condition 1 dt > 0.024 # or some value that makes sense with the refresh rate of the system
+# while running...
+target record-full
+# ...
+reverse-next / reverse-step
+```
+
+# (previous README)
+
 Support our work through [GitHub Sponsors](https://github.com/sponsors/dougbinks) or [Patreon](https://www.patreon.com/enkisoftware)
 
 [<img src="https://img.shields.io/static/v1?logo=github&label=Github&message=Sponsor&color=#ea4aaa" width="200"/>](https://github.com/sponsors/dougbinks)    [<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" alt="Become a Patron" width="150"/>](https://www.patreon.com/enkisoftware)

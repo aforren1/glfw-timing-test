@@ -3,7 +3,6 @@ cmake_minimum_required( VERSION 3.5 )
 project( BW-timing-test )
 
 find_package( OpenGL REQUIRED )
-
 include_directories( ${OPENGL_INCLUDE_DIRS} )
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL  "GLFW lib only" )
